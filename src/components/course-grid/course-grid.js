@@ -11,20 +11,22 @@ const CourseGrid = ({courses, deleteCourse, updateCourse}) =>
         </div>
         <div className="col-4 align-self-center d-none d-md-block">
           Owned by me
+          &nbsp;&nbsp;&nbsp;
+          <i class="fas fa-caret-down"></i>
         </div>
 
         <div className="col-auto align-self-center">
-          <button type="button" className="btn mx-1 btn-light">
-            <i className="fas fa-folder"></i>
+          <button type="button" className="btn">
+            <i className="fas fa-2x fa-folder"></i>
           </button>
-          <button type="button" className="btn mx-1 btn-light">
-            <i className="fas fa-sort-alpha-down"></i>
+          <button type="button" className="btn">
+            <i className="fas fa-2x fa-sort-alpha-down"></i>
           </button>
-          <Link to="/courses/table">
-            <button type="button" className="btn mx-1 btn-light">
-              <i className="fas fa-th"></i>
-            </button>
-          </Link>
+          <button type="button" className="btn">
+            <Link to="/courses/table">
+              <i className="fas fa-2x fa-list float-right"></i>
+            </Link>
+          </button>
         </div>
       </div>
 

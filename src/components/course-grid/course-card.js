@@ -40,14 +40,14 @@ const CourseCard = (
         }
         <p className="card-text">Some description</p>
 
-        <Link to="/editor" className="btn btn-primary">
+        <Link to="/courses/editor" className="btn btn-primary">
           {course.title}
         </Link>
 
         <div className="float-right">
           {editing && <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>}
           {editing && <i onClick={() => saveCourse()} className="fas fa-check"></i>}
-          {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}`
+          {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
         </div>
 
       </div>

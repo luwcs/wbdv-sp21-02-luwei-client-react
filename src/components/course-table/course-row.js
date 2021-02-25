@@ -8,24 +8,25 @@ const CourseRow = (
       updateCourse
     }) => {
       const [editing, setEditing] = useState(false)
-      const [title, setTitle] = useState(course.title)
+      const [newTitle, setNewTitle] = useState(course.title)
+
+      const edit = () => {
+        setEditing(true)
+        setNewTitle(course.title)
+      }
 
       const saveCourse = () => {
         setEditing(false)
         const newCourse = {
           ...course,
-          title: title
+          title: newTitle
         }
         updateCourse(newCourse)
       }
 
       const localDeleteCourse = () => {
         setEditing(false)
-        const newCourse = {
-          ...course,
-          title: title
-        }
-        deleteCourse(newCourse)
+        deleteCourse(course)
       }
 
       return (
@@ -41,8 +42,8 @@ const CourseRow = (
               editing &&
               <input
                   className="form-control"
-                  onChange={(e) => setTitle(e.target.value)}
-                  value={title}/>
+                  onChange={(e) => setNewTitle(e.target.value)}
+                  value={newTitle}/>
             }
           </td>
           <td className ="d-none d-md-table-cell">{course.owner}</td>
@@ -50,7 +51,7 @@ const CourseRow = (
           <td>
             {editing && <i onClick={() => localDeleteCourse()} className="fas fa-trash"></i>}
             {editing && <i onClick={() => saveCourse()} className="fas fa-check"></i>}
-            {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
+            {!editing && <i onClick={() => edit()} className="fas fa-edit"></i>}
           </td>
         </tr>
       )

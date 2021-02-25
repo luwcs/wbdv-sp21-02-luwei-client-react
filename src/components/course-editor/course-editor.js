@@ -1,21 +1,18 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {useHistory, Link} from "react-router-dom";
 
-const CourseEditor = ({history}) =>
+const CourseEditor = (props) => {
+  let history = useHistory();
+
+  return (
     <div>
-      <Link to={"/courses"}>
-        <i className={"fas fa-arrow-left"}></i>
-      </Link>
-      <span onClick={() => history.goBack()}>Go Back</span>
-      <h2>Course Editor</h2>
-
       <div className="container bg-dark">
         <nav className="navbar navbar-dark shadow-sm">
           <div className="col-4">
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <a className="nav-link text-light" href="../index.html">
-                  <i className="fas fa-times"></i>
+                <a className="nav-link text-light">
+                  <i onClick={() => history.goBack()} className="fas fa-times"></i>
                 </a>
               </li>
               <li className="nav-item">
@@ -123,8 +120,7 @@ const CourseEditor = ({history}) =>
           </div>
         </div>
       </div>
-
-
-    </div>
+    </div>)
+}
 
 export default CourseEditor
