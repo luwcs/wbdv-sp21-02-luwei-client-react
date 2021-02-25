@@ -4,8 +4,6 @@ import {Link} from "react-router-dom";
 const CourseRow = (
     {
       course,
-      lastModified,
-      owner,
       deleteCourse,
       updateCourse
     }) => {
@@ -19,6 +17,15 @@ const CourseRow = (
           title: title
         }
         updateCourse(newCourse)
+      }
+
+      const localDeleteCourse = () => {
+        setEditing(false)
+        const newCourse = {
+          ...course,
+          title: title
+        }
+        deleteCourse(newCourse)
       }
 
       return (
@@ -41,7 +48,7 @@ const CourseRow = (
           <td className ="d-none d-md-table-cell">{course.owner}</td>
           <td className ="d-none d-lg-table-cell">{course.lastModified}</td>
           <td>
-            {editing && <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>}
+            {editing && <i onClick={() => localDeleteCourse()} className="fas fa-trash"></i>}
             {editing && <i onClick={() => saveCourse()} className="fas fa-check"></i>}
             {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
           </td>

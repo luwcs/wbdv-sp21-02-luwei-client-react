@@ -7,7 +7,8 @@ import courseService, {findAllCourses, deleteCourse} from "../../services/course
 export default class CourseManager
   extends React.Component {
   state = {
-    courses: []
+    courses: [],
+    newTitle: "",
   }
 
   componentDidMount() {
@@ -30,6 +31,7 @@ export default class CourseManager
   }
 
   deleteCourse = (course) => {
+
     courseService.deleteCourse(course._id)
       .then(status => {
         this.setState((prevState) => ({
@@ -49,13 +51,15 @@ export default class CourseManager
       .then(actualCourse => {
         this.state.courses.push(actualCourse)
         this.setState(this.state) // notify state has changed and re-render
+        this.setNewTitle("")
       })
   }
 
-  updateCourseTitle = (event) => {
-    this.setState({
-      title: event.target.value
-    })
+  setNewTitle(newTitle) {
+    this.setState((prevState) => ({
+      ...prevState,
+      newTitle: newTitle
+    }))
   }
 
   render() {
@@ -66,28 +70,29 @@ export default class CourseManager
             <div className="col-1">
               <i className="fas fa-bars fa-2x"></i>
             </div>
-            <div className="col-2 d-none d-md-block">
+            <div className="col-2 d-none d-lg-block">
               Course Manager
             </div>
             <div className="col-7">
               <input
-                  onChange={this.updateCourseTitle}
+                  onChange={(event) => this.setNewTitle(event.target.value)}
                   id="new-course-title"
                   value={this.title}
                   className="form-control"
                   placeholder="New Course Title"/>
             </div>
             <div className="col-1">
-              {/*<button onClick={this.addCourse}>*/}
-                <i onClick={this.addCourse} className="fas fa-plus-square fa-2x"></i>
-              {/*</button>*/}
+              <i onClick={this.addCourse} className="fas fa-plus-square fa-2x"></i>
             </div>
           </div>
         </div>
 
         <div className="content-padding">
           <Route path="/courses/grid">
-            <CourseGrid courses={this.state.courses}/>
+            <CourseGrid
+                updateCourse={this.updateCourse}
+                deleteCourse={this.deleteCourse}
+                courses={this.state.courses}/>
           </Route>
           <Route path="/courses/table">
             <CourseTable
