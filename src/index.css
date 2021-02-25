@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wbdv-sticky-nav-bar {
+  background-color: lightblue;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.content-padding {
+  padding: 60px;
+}

@@ -1,18 +1,30 @@
-import CourseManager from "./components/course-manager";
-import CourseEditor from "./components/course-editor";
-import {BrowserRouter, Route} from "react-router-dom";
+import CourseManager from "./components/course-manager/course-manager";
+import CourseEditor from "./components/course-editor/course-editor";
+import {Link, BrowserRouter, Switch, Route} from "react-router-dom";
+import Home from "./components/home"
 
 function App() {
   return (
-    <BrowserRouter>
-      <Route path="/courses" component={CourseManager}/>
-      <Route path="/editor" render={(props) => <CourseEditor {...props}/>}/>
+      <BrowserRouter>
+        <div className="App">
 
-      {/*<div className="container-fluid">*/}
-      {/*  <CourseManager/>*/}
-      {/*  <CourseEditor/>*/}
-      {/*</div>*/}
-    </BrowserRouter>
+          <Switch>
+            <Route path="/courses/table">
+              <CourseManager />
+            </Route>
+            <Route path="/courses/grid">
+              <CourseManager />
+            </Route>
+            <Route path="/courses/editor">
+              <CourseEditor />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+
+        </div>
+      </BrowserRouter>
   );
 }
 
