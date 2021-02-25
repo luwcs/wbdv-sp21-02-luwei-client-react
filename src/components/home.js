@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 const Home = () =>
-    <div>
+    <div className="container-fluid">
       <h1>Home</h1>
       <div className="list-group">
         <Link to="/courses/table" className="list-group-item">

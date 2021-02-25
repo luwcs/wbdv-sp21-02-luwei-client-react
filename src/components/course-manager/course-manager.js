@@ -2,7 +2,7 @@ import React from 'react'
 import CourseTable from "../course-table/course-table";
 import CourseGrid from "../course-grid/course-grid";
 import CourseEditor from "../course-editor/course-editor";
-import {Route} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 import courseService from "../../services/course-service";
 
 export default class CourseManager
@@ -72,7 +72,9 @@ export default class CourseManager
           <div className="wbdv-sticky-nav-bar">
             <div className="row align-items-center">
               <div className="col-1">
-                <i className="fas fa-bars fa-2x"></i>
+                <Link to="/">
+                  <i className="fas fa-bars fa-2x"></i>
+                </Link>
               </div>
               <div className="col-2 d-none d-lg-block">
                 Course Manager

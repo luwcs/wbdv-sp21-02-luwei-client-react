@@ -12,7 +12,6 @@ export default class CourseTable
   render() {
     return(
         <div>
-
           <table className="table">
             <thead>
             <tr>
