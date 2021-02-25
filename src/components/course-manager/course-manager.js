@@ -39,6 +39,7 @@ export default class CourseManager
   }
 
   addCourse = () => {
+    document.getElementById("new-course-title").value=""
     const newCourse = {
       title: "New Course",
       owner: "me",
@@ -49,6 +50,12 @@ export default class CourseManager
         this.state.courses.push(actualCourse)
         this.setState(this.state) // notify state has changed and re-render
       })
+  }
+
+  updateCourseTitle = (event) => {
+    this.setState({
+      title: event.target.value
+    })
   }
 
   render() {
@@ -63,7 +70,12 @@ export default class CourseManager
               Course Manager
             </div>
             <div className="col-7">
-              <input className="form-control" placeholder="New Course Title"/>
+              <input
+                  onChange={this.updateCourseTitle}
+                  id="new-course-title"
+                  value={this.title}
+                  className="form-control"
+                  placeholder="New Course Title"/>
             </div>
             <div className="col-1">
               {/*<button onClick={this.addCourse}>*/}
