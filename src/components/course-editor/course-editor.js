@@ -1,126 +1,46 @@
 import React from 'react'
-import {useHistory, Link} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+import ModuleList from "./module-list";
+import LessonTabs from "./lesson-tabs";
+import moduleReducer from "../../reducers/module-reducer";
+import lessonReducer from "../../reducers/lesson-reducer";
+import TopicPills from "./topic-pills";
+import topicReducer from "../../reducers/topic-reducer";
+
+const reducer = combineReducers({
+  moduleReducer: moduleReducer,
+  lessonReducer: lessonReducer,
+  topicReducer: topicReducer
+})
+
+const store = createStore(reducer)
+
 
 const CourseEditor = (props) => {
+  const {courseId} = useParams();
   let history = useHistory();
 
   return (
+    <Provider store={store}>
     <div>
-      <div className="container bg-dark">
-        <nav className="navbar navbar-dark shadow-sm">
-          <div className="col-4">
-            <ul className="nav nav-tabs">
-              <li className="nav-item">
-                <a className="nav-link text-light">
-                  <i onClick={() => history.goBack()} className="fas fa-times"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light">CS5610 - WebDev</a>
-              </li>
-            </ul>
-          </div>
 
-          <div className="col-8">
-            <ul className="nav nav-tabs">
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">Build</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active bg-dark text-light"
-                   href="#">Pages</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">Theme</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">Store</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">Apps</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">Settings</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="#">
-                  <i className="fas fa-plus"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+      Course {courseId}
 
-        </nav>
-
-        <div className="row">
-          <div className="col-4">
-            <ul className="list-group">
-              <li className="list-group-item">
-                Module 1 - jQuery
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item active">
-                Module 2 - React
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 3 - Redux
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 4 - Native
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 5 - Angular
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 6 - Node
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 7 - Mongo
-                <i className="fas fa-times float-right"></i>
-              </li>
-              <li className="list-group-item">
-                <i className="fas fa-plus float-right"></i>
-              </li>
-
-            </ul>
-          </div>
-
-          <div className="col-8 bg-white">
-            <br/>
-
-            <ul className="nav nav-pills">
-              <li className="nav-item wbdv-margin">
-                <a className="nav-link bg-dark text-white" href="#">Topic 1</a>
-              </li>
-              <li className="nav-item wbdv-margin">
-                <a className="nav-link active bg-dark" href="#">Topic 2</a>
-              </li>
-              <li className="nav-item wbdv-margin">
-                <a className="nav-link bg-dark text-white" href="#">Topic 3</a>
-              </li>
-              <li className="nav-item wbdv-margin">
-                <a className="nav-link bg-dark text-white" href="#">Topic 4</a>
-              </li>
-              <li className="nav-item wbdv-margin">
-                <a className="nav-link bg-dark text-white" href="#">
-                  <i className="fas fa-plus"></i>
-                </a>
-              </li>
-            </ul>
-
-            <br/>
-            <div className="d-flex justify-content-center">
-              Content intentionally left blank
-            </div>
-          </div>
+      <div className="row">
+        <div className="col-4">
+          <ModuleList/>
         </div>
+        <div className="col-8">
+          <LessonTabs/>
+          <TopicPills/>
+        </div>
+
       </div>
-    </div>)
+
+    </div>
+    </Provider>)
 }
 
 export default CourseEditor
