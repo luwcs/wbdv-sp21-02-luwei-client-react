@@ -19,14 +19,12 @@ const store = createStore(reducer)
 
 
 const CourseEditor = (props) => {
-  const {courseId} = useParams();
+  const {courseId, moduleId} = useParams();
   let history = useHistory();
 
   return (
     <Provider store={store}>
     <div>
-
-      Course {courseId}
 
       <div className="row">
         <div className="col-4">

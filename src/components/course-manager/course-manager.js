@@ -1,7 +1,6 @@
 import React from 'react'
 import CourseTable from "../course-table/course-table";
 import CourseGrid from "../course-grid/course-grid";
-import CourseEditor from "../course-editor/course-editor";
 import {Link, Route} from "react-router-dom";
 import courseService from "../../services/course-service";
 
@@ -111,4 +110,3 @@ export default class CourseManager
     )
   }
 }
-

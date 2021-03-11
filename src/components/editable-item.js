@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import {Link} from "react-router-dom"
 
 const EditableItem = (
   {
+    to="/somewhere/to/go",
     deleteItem,
     updateItem,
     item={title: "Some Title", _id:"ABC"}
@@ -13,7 +15,9 @@ const EditableItem = (
       {
         !editing &&
         <>
-          {item.title}
+          <Link to={to}>
+            {item.title}
+          </Link>
           <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
         </>
       }
@@ -32,7 +36,6 @@ const EditableItem = (
             updateItem(cachedItem)
           }} className="fas fa-check"></i>
           <i onClick={() => {
-            setEditing(false)
             deleteItem(item)
           }} className="fas fa-times"></i>
         </>
@@ -42,3 +45,5 @@ const EditableItem = (
 }
 
 export default EditableItem
+
+
