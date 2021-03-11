@@ -57,11 +57,15 @@ const stpm = (state) => {
 const dtpm = (dispatch) => {
   return {
     createModule: (courseId) => {
-      moduleService.createModuleForCourse(courseId, {title: "New Module"})
-      .then(theActualModule => dispatch({
-        type: "CREATE_MODULE",
-        module: theActualModule
-      }))
+      if (courseId !== "undefined" && typeof courseId !== "undefined") {
+        moduleService.createModuleForCourse(courseId, {title: "New Module"})
+        .then(theActualModule => dispatch({
+          type: "CREATE_MODULE",
+          module: theActualModule
+        }))
+      } else {
+        alert("Please select a course")
+      }
     },
     deleteModule: (item) =>
         moduleService.deleteModule(item._id)

@@ -69,12 +69,15 @@ const dtpm = (dispatch) => ({
     }))
   },
   createTopicForLesson: (lessonId) => {
+    if (lessonId !== "undefined" && typeof lessonId !== "undefined") {
     topicService
     .createTopicForLesson(lessonId, {title: "New Topic"})
     .then(topic => dispatch({
       type: "CREATE_TOPIC",
       topic
     }))
+    } else
+        alert("Please select a lesson");
   },
   deleteTopic: (topic) =>
       topicService.deleteTopic(topic._id)

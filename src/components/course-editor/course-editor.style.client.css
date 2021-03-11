@@ -1,0 +1,5 @@
+.segmentsList:hover, .segmentsList.selected {
+  background: lightskyblue;
+  color: white;
+  cursor: pointer;
+}
