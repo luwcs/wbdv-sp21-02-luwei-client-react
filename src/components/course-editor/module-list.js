@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import moduleService from "../../services/module-service"
+import "./course-editor.style.client.css";
 
 const ModuleList = (
     {
@@ -11,7 +12,8 @@ const ModuleList = (
       deleteModule,
       updateModule,
       clear,
-      findModulesForCourse
+      findModulesForCourse,
+      active
     }) => {
     const {layout, courseId, moduleId} = useParams();
     useEffect(() => {
@@ -22,7 +24,7 @@ const ModuleList = (
         <ul className="list-group">
           {
             modules.map(module =>
-              <li className="list-group-item">
+              // <li className="list-group-item">
                 <EditableItem
                     key={module._id}
                     to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
@@ -30,7 +32,7 @@ const ModuleList = (
                     deleteItem={deleteModule}
                     active={module._id === moduleId}
                   item={module}/>
-              </li>
+              // </li>
             )
           }
           <li className="list-group-item">

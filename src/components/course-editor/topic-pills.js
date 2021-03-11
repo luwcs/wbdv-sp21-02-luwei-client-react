@@ -25,7 +25,7 @@ const TopicPills = (
         <ul className="nav nav-pills">
           {
             topics.map(topic =>
-                <li className="nav-item wbdv-margin">
+                // <li className="nav-item wbdv-margin">
                   <a className="nav-link text-white" href="#">
                     <EditableItem
                         active={topic._id === topicId}
@@ -37,7 +37,7 @@ const TopicPills = (
                         key={topic._id}
                     />
                   </a>
-                </li>
+                // </li>
             )
           }
           <li className="list-group-item text-primary text-center border-0">

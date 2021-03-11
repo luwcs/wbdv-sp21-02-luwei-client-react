@@ -1,5 +1,7 @@
-.segmentsList:hover, .segmentsList.selected {
-  background: lightskyblue;
-  color: white;
-  cursor: pointer;
+/*.active {*/
+/*  background-color: gray;*/
+/*}*/
+
+.link {
+  color: black;
 }

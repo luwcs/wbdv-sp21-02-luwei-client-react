@@ -29,7 +29,7 @@ const LessonTabs = (
           {
             lessons.map(lesson =>
 
-                <li className="nav-item segmentsList">
+                // <li className="nav-item">
                   <a className="nav-link text-light" href="#">
                     <EditableItem
                         active={lesson._id === lessonId}
@@ -42,7 +42,7 @@ const LessonTabs = (
                         item={lesson}
                     />
                   </a>
-                </li>
+                // </li>
             )
           }
 
