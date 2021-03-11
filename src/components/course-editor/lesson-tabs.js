@@ -43,9 +43,11 @@ const LessonTabs = (
             )
           }
 
-          <li className="list-group-item text-primary text-center border-0">
-            <i onClick={() => createLessonForModule(moduleId)} className="fas fa-plus"></i>
-          </li>
+          <button className="btn"
+                  onClick={() => createLessonForModule(moduleId)}>
+            <i className="fas fa-plus"></i>
+          </button>
+
         </ul>
 
       </nav>
