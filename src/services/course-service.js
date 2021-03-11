@@ -20,6 +20,9 @@ export const createCourse = (course) =>
     }).
         then(response => response.json())
 
+export const findCourseById = (courseId) =>
+    fetch(`${COURSES_URL}/${courseId}`).then(response => response.json())
+
 export const updateCourse = (courseId, course) =>
     fetch(`${COURSES_URL}/${courseId}`, {
       method: 'PUT',
@@ -34,7 +37,8 @@ const api = {
     findAllCourses: findAllCourses,
     deleteCourse: deleteCourse,
     createCourse: createCourse,
-    updateCourse: updateCourse
+    updateCourse: updateCourse,
+    findCourseById: findCourseById
 }
 
 export default api;

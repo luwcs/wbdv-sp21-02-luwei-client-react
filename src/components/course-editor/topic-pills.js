@@ -41,10 +41,11 @@ const TopicPills = (
             )
           }
           <li className="list-group-item text-primary text-center border-0">
-            {/*<button className="btn btn-primary">*/}
-            {/*  */}
-            {/*</button>*/}
-            <i onClick={() => createTopicForLesson(lessonId)} className="fas fa-plus"></i>
+            <button className="btn btn-secondary"
+                    onClick={() => createTopicForLesson(lessonId)}
+            >
+              <i className="fas fa-plus"></i>
+            </button>
           </li>
 
         </ul>

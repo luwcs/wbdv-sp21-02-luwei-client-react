@@ -18,7 +18,10 @@ const EditableItem = (
           <Link to={to}>
             {item.title}
           </Link>
-          <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+          <button className="btn float-right"
+                  onClick={() => setEditing(true)}>
+            <i className="fas fa-edit"></i>
+          </button>
         </>
       }
       {
@@ -31,13 +34,15 @@ const EditableItem = (
                   title: e.target.value
               })}
               value={cachedItem.title}/>
-          <i onClick={() => {
-            setEditing(false)
-            updateItem(cachedItem)
-          }} className="fas fa-check"></i>
-          <i onClick={() => {
-            deleteItem(item)
-          }} className="fas fa-times"></i>
+          <button className="btn float-right"
+                  onClick={() => {deleteItem(item)}}>
+            <i o className="fas fa-times" style={{color: 'red'}}></i>
+          </button>
+          <button className="btn float-right"
+                  onClick={() => {setEditing(false)
+                                  updateItem(cachedItem)}}>
+            <i o className="fas fa-check" style={{color: 'green'}}></i>
+          </button>
         </>
       }
     </>
