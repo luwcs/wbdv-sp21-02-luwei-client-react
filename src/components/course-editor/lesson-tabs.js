@@ -23,7 +23,7 @@ const LessonTabs = (
     }
   }, [moduleId])
   return (
-    <nav className="navbar navbar-dark shadow-sm">
+    <nav className="navbar navbar-dark">
 
         <ul className="nav nav-tabs">
           {
