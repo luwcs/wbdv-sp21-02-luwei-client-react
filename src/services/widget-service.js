@@ -1,5 +1,7 @@
 const TOPICS_URL = "https://wbdv-generic-server.herokuapp.com/api/luwei/topics";
-const WIDGETS_URL = "http://localhost:8080/api";
+// const WIDGETS_URL = process.env.REACT_APP_WIDGET_URL;
+// const WIDGETS_URL = "http://localhost:8080/api";
+const WIDGETS_URL = "https://wbdv-sp21-server-java-luwei.herokuapp.com/api"
 
 export const createWidgetForTopic = (topicId, widget) =>
     fetch(`${WIDGETS_URL}/topics/${topicId}/widgets`, {
