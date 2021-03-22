@@ -36,22 +36,22 @@ const ParagraphWidget = (
                   value={cachedItem.text}
                   className="form-control"/>
 
-              {/*{cachedItem.type === "HEADING" &&*/}
-              {/*<select*/}
-              {/*    onChange={(e) =>*/}
-              {/*        setCachedItem({*/}
-              {/*          ...cachedItem,*/}
-              {/*          size: parseInt(e.target.value)*/}
-              {/*        })}*/}
-              {/*    value={cachedItem.size}*/}
-              {/*    className="form-control">*/}
-              {/*  <option value={1}>Heading1</option>*/}
-              {/*  <option value={2}>Heading2</option>*/}
-              {/*  <option value={3}>Heading3</option>*/}
-              {/*  <option value={4}>Heading4</option>*/}
-              {/*  <option value={5}>Heading5</option>*/}
-              {/*  <option value={6}>Heading6</option>*/}
-              {/*</select>}*/}
+              {cachedItem.type === "HEADING" &&
+              <select
+                  onChange={(e) =>
+                      setCachedItem({
+                        ...cachedItem,
+                        size: parseInt(e.target.value)
+                      })}
+                  value={cachedItem.size}
+                  className="form-control">
+                <option value={1}>Heading1</option>
+                <option value={2}>Heading2</option>
+                <option value={3}>Heading3</option>
+                <option value={4}>Heading4</option>
+                <option value={5}>Heading5</option>
+                <option value={6}>Heading6</option>
+              </select>}
             </div>
 
             <div className="col-3">

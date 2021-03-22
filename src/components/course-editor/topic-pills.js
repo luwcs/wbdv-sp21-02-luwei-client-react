@@ -48,11 +48,6 @@ const TopicPills = (
           </li>
 
         </ul>
-
-        <br/>
-        <div className="d-flex justify-content-center">
-          Content intentionally left blank
-        </div>
     </div>
     )}
 

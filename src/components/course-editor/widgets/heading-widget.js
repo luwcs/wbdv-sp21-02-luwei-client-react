@@ -27,15 +27,16 @@ const HeadingWidget = (
                 <option value="PARAGRAPH">Paragraph</option>
               </select>
 
-                <input
-                    onChange={(e) =>
-                        setCachedItem({
-                          ...cachedItem,
-                          text: e.target.value
-                        })}
-                    value={cachedItem.text}
-                    className="form-control"/>
+              <input
+                  onChange={(e) =>
+                      setCachedItem({
+                        ...cachedItem,
+                        text: e.target.value
+                      })}
+                  value={cachedItem.text}
+                  className="form-control"/>
 
+              {cachedItem.type === "HEADING" &&
                 <select
                     onChange={(e) =>
                         setCachedItem({
@@ -50,7 +51,7 @@ const HeadingWidget = (
                   <option value={4}>Heading4</option>
                   <option value={5}>Heading5</option>
                   <option value={6}>Heading6</option>
-                </select>
+                </select>}
               </div>
 
             <div className="col-3">

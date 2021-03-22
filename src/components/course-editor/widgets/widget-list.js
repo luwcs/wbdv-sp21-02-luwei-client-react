@@ -16,7 +16,6 @@ const WidgetList = (
     clear
   }) => {
 
-
   const {layout, topicId, lessonId, widgetId} = useParams();
 
   useEffect(() => {
@@ -31,7 +30,6 @@ const WidgetList = (
   return(
       <div>
         <i onClick={() => createWidgetForTopic(topicId)} className="fas fa-plus fa-2x float-right"></i>
-        <h2>Widget List ({widgets.length} {topicId})</h2>
         <ul className="list-group">
           {
             widgets.map(widget =>
@@ -103,7 +101,7 @@ const dtpm = (dispatch) => ({
         widgets
       })
     })
-  },
+  }
 })
 
 export default connect(stpm, dtpm)(WidgetList)
