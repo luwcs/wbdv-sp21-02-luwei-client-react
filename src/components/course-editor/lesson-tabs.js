@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom"
 import lessonService from '../../services/lesson-service'
 // import "./course-editor.style.client.css"
 
+
 const LessonTabs = (
   {
     lessons=[],
@@ -16,12 +17,14 @@ const LessonTabs = (
   }) => {
 
   const {layout, courseId, moduleId, lessonId} = useParams();
+
   useEffect(() => {
     console.log("LOAD LESSONS FOR MODULE: " + moduleId)
     if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
       clear().then(() => findLessonsForModule(moduleId))
     }
   }, [moduleId])
+
   return (
     <nav className="navbar navbar-dark">
 
@@ -58,11 +61,13 @@ const LessonTabs = (
 
 
 
-
+// state to property mapper
 const stpm = (state) => ({
   lessons: state.lessonReducer.lessons
 })
 
+
+// dispatch to property mapper
 const dtpm = (dispatch) => ({
   createLessonForModule: (moduleId) => {
     if (moduleId !== "undefined" && typeof moduleId !== "undefined") {

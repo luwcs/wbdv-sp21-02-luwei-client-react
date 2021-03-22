@@ -14,7 +14,8 @@ function App() {
               "/courses/:layout/edit/:courseId",
               "/courses/:layout/edit/:courseId/modules/:moduleId",
               "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
-              "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
+              "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+              "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId"
             ]}
                    exact={true}
                    render={(props) => <CourseEditor {...props}/>} />
@@ -24,6 +25,13 @@ function App() {
             <Route path="/courses/grid" exact={true}>
               <CourseManager />
             </Route>
+
+            {/* for testing ---start */}
+            <Route path="/courses/editor" exact={true}>
+              <CourseEditor />
+            </Route>
+            {/* for testing ---end */}
+
             <Route path="/">
               <Home />
             </Route>
