@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import EditingWidget from "./editing-widget";
 
-const ParagraphWidget = (
+const ListWidget = (
     {
       widget,
       deleteWidget,
@@ -15,16 +15,7 @@ const ParagraphWidget = (
         {
           !editing &&
           <>
-            <div className="col-9">
-              <p>
-                {widget.text}
-              </p>
-            </div>
 
-            <div className="col-3">
-              <i onClick={() => setEditing(true)}
-                 className="fas fa-2x fa-cog float-right"></i>
-            </div>
           </>
         }
         {
@@ -39,4 +30,4 @@ const ParagraphWidget = (
   )
 }
 
-export default ParagraphWidget
+export default ListWidget

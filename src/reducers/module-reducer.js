@@ -1,3 +1,8 @@
+import {FIND_MODULES_FOR_COURSE,
+        CREATE_MODULE,
+        DELETE_MODULE,
+        UPDATE_MODULE} from "../actions/module-actions"
+
 const initialState = {
   modules: [
     // {_id: 1, title: "Module 1 - jQuery"},
@@ -12,13 +17,13 @@ const initialState = {
 
 const moduleReducer = (state=initialState, action) => {
   switch (action.type) {
-    case "FIND_MODULES_FOR_COURSE":
+    case FIND_MODULES_FOR_COURSE:
       return {
         ...state,
         modules: action.modules
       }
 
-    case "CREATE_MODULE":
+    case CREATE_MODULE:
       const newState = {
         modules: [
           ...state.modules,
@@ -27,7 +32,7 @@ const moduleReducer = (state=initialState, action) => {
       }
       return newState
 
-    case "DELETE_MODULE":
+    case DELETE_MODULE:
       const newState1 = {
         modules: state.modules.filter(module => {
           if(module._id === action.moduleToDelete._id) {
@@ -39,7 +44,7 @@ const moduleReducer = (state=initialState, action) => {
       }
       return newState1
 
-    case "UPDATE_MODULE":
+    case UPDATE_MODULE:
       return {
         ...state,
         modules: state.modules.map(m => {

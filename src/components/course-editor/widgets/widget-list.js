@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom"
 import widgetService from '../../../services/widget-service'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import ListWidget from "./list-widget";
 
 const WidgetList = (
   {
@@ -16,7 +17,11 @@ const WidgetList = (
     clear
   }) => {
 
-  const {layout, topicId, lessonId, widgetId} = useParams();
+  const HEADING = "HEADING";
+  const PARAGRAPH = "PARAGRAPH";
+  const LIST = "LIST";
+  const IMAGE = "IMAGE";
+  const {layout, courseId, moduleId, lessonId, topicId} = useParams();
 
   useEffect(() => {
     if(topicId !== "undefined" && typeof topicId !== "undefined") {
@@ -40,15 +45,29 @@ const WidgetList = (
             widgets.map(widget =>
               <li className="list-group-item" key={widget.id}>
                 {
-                  widget.type === "HEADING" &&
+                  widget.type === HEADING &&
                     <HeadingWidget
                       updateWidget={updateWidget}
                       deleteWidget={deleteWidget}
                       widget={widget}/>
                 }
                 {
-                  widget.type === "PARAGRAPH" &&
+                  widget.type === PARAGRAPH &&
                     <ParagraphWidget
+                      updateWidget={updateWidget}
+                      deleteWidget={deleteWidget}
+                      widget={widget}/>
+                }
+                {
+                  widget.type === LIST &&
+                    <ListWidget
+                        updateWidget={updateWidget}
+                        deleteWidget={deleteWidget}
+                        widget={widget}/>
+                }
+                {
+                  widget.type === IMAGE &&
+                  <ListWidget
                       updateWidget={updateWidget}
                       deleteWidget={deleteWidget}
                       widget={widget}/>
