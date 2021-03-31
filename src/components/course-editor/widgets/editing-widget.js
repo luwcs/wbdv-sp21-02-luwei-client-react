@@ -35,7 +35,7 @@ const EditingWidget = (
             </select>
 
             {
-              cachedItem.type === {HEADING} &&
+              cachedItem.type === HEADING &&
               <>
                 <input
                     onChange={(e) =>
@@ -65,7 +65,7 @@ const EditingWidget = (
             }
 
             {
-              cachedItem.type === {PARAGRAPH} &&
+              cachedItem.type === PARAGRAPH &&
               <>
                 <textarea
                     onChange={(e) =>
@@ -79,22 +79,52 @@ const EditingWidget = (
             }
 
             {
-              cachedItem.type === {LIST} &&
+              cachedItem.type === LIST &&
               <>
-
+                <input
+                   onChange={(e) =>
+                      setCachedItem({...cachedItem, ordered: !cachedItem.ordered})}
+                   type="checkbox"
+                   id="order"/>
+                <label for="order">Ordered</label>
+                <br/>
+                <textarea
+                  rows={10}
+                  className="form-control"
+                  value={cachedItem.text}
+                  onChange={(e) => {
+                    setCachedItem({...cachedItem, text: e.target.value})
+                  }}/>
               </>
             }
 
             {
-              cachedItem.type === {IMAGE} &&
+              cachedItem.type === IMAGE &&
               <>
-
+                <input
+                    className="form-control"
+                    placeholder={`Image URL`}
+                    value={cachedItem.src}
+                    onChange={(e) => {
+                      setCachedItem({...cachedItem, src: e.target.value})
+                    }} />
+                <input className="form-control"
+                    placeholder={`Image Width`}
+                    value={cachedItem.width}
+                    onChange={(e) => {
+                      setCachedItem({...cachedItem, width: e.target.value})
+                    }} />
+                <input className="form-control"
+                    placeholder={`Image Height`}
+                    value={cachedItem.height}
+                    onChange={(e) => {
+                      setCachedItem({...cachedItem, height: e.target.value})
+                    }} />
               </>
             }
-
           </div>
 
-          <div className="col-3">
+          <div className="col-3 float-right">
             <i onClick={() => {
               updateWidget(cachedItem)
               setEditing(false)}}

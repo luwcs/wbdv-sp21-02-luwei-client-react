@@ -11,11 +11,17 @@ const ImageWidget = (
     const [editing, setEditing] = useState(false)
 
     return (
-        <div className="row">
+        <div>
             {
                 !editing &&
                 <>
-
+                  <div className="col">
+                    <img src={widget.src} alt={widget.src} width={widget.width} height={widget.height}/>
+                  </div>
+                  <div className="col">
+                    <i onClick={() => setEditing(true)}
+                       className="fas fa-2x fa-cog float-right"></i>
+                  </div>
                 </>
             }
             {

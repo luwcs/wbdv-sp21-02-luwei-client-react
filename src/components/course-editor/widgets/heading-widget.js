@@ -16,15 +16,15 @@ const HeadingWidget = (
   }, [widget.size]);
 
   return (
-      <div className="row">
+      <div>
         {
           !editing &&
             <>
-              <div className="col-9">
+              <div className="col">
                 <HeaderTag>{widget.text}</HeaderTag>
               </div>
 
-              <div className="col-3">
+              <div className="col">
                 <i onClick={() => setEditing(true)}
                    className="fas fa-2x fa-cog float-right"></i>
               </div>

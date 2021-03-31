@@ -6,6 +6,7 @@ import widgetService from '../../../services/widget-service'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
 import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = (
   {
@@ -67,7 +68,7 @@ const WidgetList = (
                 }
                 {
                   widget.type === IMAGE &&
-                  <ListWidget
+                  <ImageWidget
                       updateWidget={updateWidget}
                       deleteWidget={deleteWidget}
                       widget={widget}/>

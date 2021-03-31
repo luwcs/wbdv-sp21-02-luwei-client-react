@@ -11,17 +11,17 @@ const ParagraphWidget = (
   const [editing, setEditing] = useState(false)
 
   return (
-      <div className="row">
+      <div>
         {
           !editing &&
           <>
-            <div className="col-9">
+            <div className="col">
               <p>
                 {widget.text}
               </p>
             </div>
 
-            <div className="col-3">
+            <div className="col">
               <i onClick={() => setEditing(true)}
                  className="fas fa-2x fa-cog float-right"></i>
             </div>
