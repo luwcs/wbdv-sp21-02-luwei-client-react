@@ -12,6 +12,7 @@ import CourseService from "../../services/course-service";
 import WidgetList from "./widgets/widget-list";
 import widgetReducer from "../../reducers/widget-reducer";
 
+
 const reducer = combineReducers({
   moduleReducer,
   lessonReducer,

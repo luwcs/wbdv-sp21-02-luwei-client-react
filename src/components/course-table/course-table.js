@@ -18,6 +18,7 @@ export default class CourseTable
               <th scope="col">Title</th>
               <th scope="col" className="d-none d-md-table-cell">Owned By</th>
               <th scope="col" className="d-none d-lg-table-cell">Last Modified</th>
+              <th scope="col" className="d-none d-lg-table-cell">Quizzes</th>
               <th scope="col" className="float-right">
                 <button type="button" className="btn">
                   <i className="fas fa-2x fa-folder"></i>
