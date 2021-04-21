@@ -69,7 +69,10 @@ const TrueFalseQuestion = ({question}) => {
         </div>
         <div
             className="row btn btn-success p-2"
-            onClick={() => setGraded(true)}>
+            onClick={() => {
+              setGraded(true)
+              question.answer = yourAnswer
+            }}>
           Confirm
         </div>
       </div>

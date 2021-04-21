@@ -5,6 +5,7 @@ import Home from "./components/home"
 import './App.css';
 import QuizzesList from "./components/quizzes/quizzes-list";
 import Quiz from "./components/quizzes/quiz";
+import QuizAttempts from "./components/quiz-attempt/quiz-attempt";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
               <Quiz/>
+            </Route>
+            <Route path="/courses/:courseId/quizzes/:quizId/attempts" exact={true}>
+              <QuizAttempts />
             </Route>
             <Route path="/">
               <Home />

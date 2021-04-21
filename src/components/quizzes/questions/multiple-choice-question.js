@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 
-const MultipleChoiceQuestion = ({question}) => {
+const MultipleChoiceQuestion = ({
+  question
+}) => {
   const getColorForEntry = (correctAnswer, currentChoice, entryValue) => {
     if (currentChoice == "" || !graded)
       return ""
@@ -66,11 +68,13 @@ const MultipleChoiceQuestion = ({question}) => {
         <br/>
         <div
             className="row btn btn-success p-2"
-            onClick={() => setGraded(true)}>
+            onClick={() => {
+              setGraded(true)
+              question.answer = yourAnswer
+            }}>
           Confirm
         </div>
       </div>
-
   )
 }
 

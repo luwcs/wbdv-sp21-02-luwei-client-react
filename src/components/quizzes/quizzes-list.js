@@ -18,9 +18,14 @@ const QuizzesList = () => {
           {
             quizzes.map((quiz) => {
               return(
-                  <div className="list-group-item">
-                    <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
+                  <div className="list-group-item row">
+                    <Link className="col-3"
+                        to={`/courses/${courseId}/quizzes/${quiz._id}`}>
                       {quiz.title}
+                    </Link>
+                    <Link className="col-3"
+                        to={`/courses/${courseId}/quizzes/${quiz._id}/attempts`}>
+                      Attempts
                     </Link>
                     <Link
                         className="btn btn-primary float-right"
