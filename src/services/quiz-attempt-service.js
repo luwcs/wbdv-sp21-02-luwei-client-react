@@ -1,4 +1,4 @@
-const QUIZZES_URL = "http://localhost:4000/api/quizzes";
+const QUIZZES_URL = "http://wbdv-sp21-02-luwei-node.herokuapp.com/api/quizzes";
 
 const QuizAttemptService = {
   findAttemptsForQuiz : (qid) => {

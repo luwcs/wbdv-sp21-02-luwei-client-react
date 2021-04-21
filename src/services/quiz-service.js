@@ -1,6 +1,6 @@
 // const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001056134/courses"
 // const QUIZZES_URL = "https://wbdv-sp21-02-luwei-node.herokuapp.com/api";
-const QUIZZES_URL = "http://localhost:4000/api";
+const QUIZZES_URL = "http://wbdv-sp21-02-luwei-node.herokuapp.com/api";
 
 // export const createQuizForCourse = (courseId, quiz) =>
 //     fetch(``, {
